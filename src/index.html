@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="viewport" content="user-scalable=no"/>
+    <script src="https://connect.facebook.net/en_US/fbinstant.6.3.js"></script>
+    <title>🎮 Hangman Game</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <div id="splash">Loading..</div>
+
+    <script>
+      FBInstant.initializeAsync().then(function() {
+
+          // Start loading game assets here 
+          loadAssets();
+
+          // Finished loading. Start the game 
+          FBInstant.startGameAsync().then(function() { 
+
+            // var contextId = FBInstant.context.getID();
+            // var contextType = FBInstant.context.getType();
+
+            // var playerName = FBInstant.player.getName();
+            // var playerPic = FBInstant.player.getPhoto();
+            // var playerId = FBInstant.player.getID();
+
+            // FBInstant.context.chooseAsync() .then(function () { 
+            //     console.log("FBInstant.context.chooseAsync complete");
+            // });
+
+              
+
+          }); 
+      });
+
+      // Load React Bundle
+      function loadAssets() {
+
+        document.getElementById('splash').style.display = 'none';
+
+        function loadStyles() {
+            return new Promise(function (resolve, reject) {
+              let style = document.createElement("link");
+              style.type = 'text/css';
+              style.rel = 'stylesheet';
+              style.href = "assets/css/style.css";
+              style.onload = resolve;
+              style.onerror = reject;
+              document.head.appendChild(style);
+            });
+        }
+
+        function loadApp() {
+            return new Promise(function (resolve, reject) {
+                let js = document.createElement('script');
+                js.src = "assets/js/main.js";
+                js.onload = resolve;
+                js.onerror = reject;
+                document.head.appendChild(js);
+            });
+        }
+
+        loadStyles().then(resStyles => {
+
+          loadApp().then(resJs => {
+              
+          }).catch(err => {
+
+          });
+
+        }).catch(err => {
+
+        });
+      }
+    </script>
+  </body>
+</html>

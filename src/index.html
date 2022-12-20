@@ -69,7 +69,7 @@
         loadStyles().then(resStyles => {
 
           loadApp().then(resJs => {
-              
+            FBInstant.setLoadingProgress(100);
           }).catch(err => {
 
           });

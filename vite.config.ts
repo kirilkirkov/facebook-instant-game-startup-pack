@@ -23,7 +23,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    // Copy Game Index File
+    // Copy Game Index File To Dist
     viteStaticCopy({
       targets: [
         {

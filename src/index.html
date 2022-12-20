@@ -7,7 +7,7 @@
     <meta name="screen-orientation" content="portrait"/>
     <meta name="viewport" content="user-scalable=no"/>
     <script src="https://connect.facebook.net/en_US/fbinstant.6.3.js"></script>
-    <title>🎮 Hangman Game</title>
+    <title>Facebook Instant Game - StartUp</title>
   </head>
   <body>
     <div id="root"></div>
@@ -23,20 +23,9 @@
           // Finished loading. Start the game 
           FBInstant.startGameAsync().then(function() { 
 
-            // var contextId = FBInstant.context.getID();
-            // var contextType = FBInstant.context.getType();
-
             window.playerName = FBInstant.player.getName();
-
-            // var playerName = FBInstant.player.getName();
-            // var playerPic = FBInstant.player.getPhoto();
-            // var playerId = FBInstant.player.getID();
-
-            // FBInstant.context.chooseAsync() .then(function () { 
-            //     console.log("FBInstant.context.chooseAsync complete");
-            // });
-
-              
+            window.playerPic = FBInstant.player.getPhoto();
+            window.playerId = FBInstant.player.getID();
 
           }); 
       });
@@ -73,11 +62,11 @@
           loadApp().then(resJs => {
             FBInstant.setLoadingProgress(100);
           }).catch(err => {
-
+            // Do same screen error if wants
           });
 
         }).catch(err => {
-
+          // Do same screen error if wants
         });
       }
     </script>
